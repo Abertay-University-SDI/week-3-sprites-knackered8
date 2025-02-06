@@ -6,6 +6,7 @@
 #include "Framework/GameObject.h"
 #include <string.h>
 #include <iostream>
+#include "Player.h"
 
 
 class Level : BaseLevel {
@@ -16,6 +17,8 @@ public:
 	void handleInput(float dt) override;
 	void update(float dt) override;
 	void render() override;
+
+	Player playerObject;
 
 private:
 	// Level objects
