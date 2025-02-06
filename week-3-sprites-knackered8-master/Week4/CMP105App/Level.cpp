@@ -1,5 +1,6 @@
 #include "Level.h"
 #include "Player.h"
+#include "Enemy.h"
 
 Level::Level(sf::RenderWindow* hwnd, Input* in)
 {
@@ -16,6 +17,10 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	playerObject.setFillColor(sf::Color::Red);
 	playerObject.setPosition(100, 100);
 	playerObject.setSize(sf::Vector2f(10, 10));
+
+	enemyObject.setFillColor(sf::Color::Blue);
+	enemyObject.setPosition(400, 300);
+	enemyObject.setSize(sf::Vector2f(10, 10));
 
 	
 	playerObject.setInput(input);
@@ -47,7 +52,8 @@ void Level::handleInput(float dt)
 // Update game objects
 void Level::update(float dt)
 {
-	//playerObject.HandleInput(testSprite, dt);
+	enemyObject.EnemyMove(dt);
+	enemyObject.EnemyBounce(dt);
 }
 
 // Render level
@@ -57,6 +63,7 @@ void Level::render()
 
 	window->draw(testSprite);
 	window->draw(playerObject);
+	window->draw(enemyObject);
 
 	endDraw();
 }

@@ -16,9 +16,9 @@ class Player : public GameObject
 
 
 		Player();
-		void HandleInput(GameObject rect, float dt);
+		
 
-		void handleInput(float dt) override;
+		void handleInput(float dt);
 
 
 
