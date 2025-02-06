@@ -13,9 +13,9 @@ class Enemy : public GameObject
 		int enemyDirectionHoz = 1;
 		int enemyDirectionVer = 1;
 
-		void ReturnWindow(sf::RenderWindow* win);
-
-		Enemy();
+		//void ReturnWindow(sf::RenderWindow* win);
+		Enemy() {};
+		Enemy(sf::RenderWindow* win);
 
 		void EnemyBounce(float dt);
 		void EnemyMove(float dt);

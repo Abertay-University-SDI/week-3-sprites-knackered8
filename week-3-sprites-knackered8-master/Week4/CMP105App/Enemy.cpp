@@ -2,16 +2,16 @@
 
 
 
-Enemy::Enemy()
+Enemy::Enemy(sf::RenderWindow* win)
 {
-
+	window = win;
 }
 
-void Enemy::ReturnWindow(sf::RenderWindow* win)
+/*void Enemy::ReturnWindow(sf::RenderWindow* win)
 {
 	window = win;
 	
-}
+}*/
 
 void Enemy::EnemyBounce(float dt)
 {

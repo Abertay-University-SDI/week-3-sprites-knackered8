@@ -8,9 +8,14 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	window = hwnd;
 	input = in;
 
+	Enemy enemyObject = Enemy(window);
+	Enemy enemyObject2 = Enemy(window);
+
 	//enemyObject.setWindow(window);
-	enemyObject.ReturnWindow(window);
-	enemyObject2.ReturnWindow(window);
+	//enemyObject.ReturnWindow(window);
+	//enemyObject2.ReturnWindow(window);
+
+	backObject.ReturnWindow(window);
 
 	// initialise game objects
 	texture.loadFromFile("gfx/Mushroom.png");
@@ -40,7 +45,7 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	backObject.setSize(sf::Vector2f(11038,675));
 
 
-	
+	backObject.setInput(input);
 	playerObject.setInput(input);
 
 	
@@ -64,6 +69,7 @@ void Level::handleInput(float dt)
 
 
 	playerObject.handleInput(dt);
+	backObject.handleInput(dt);
 
 }
 
