@@ -11,6 +11,18 @@ void Enemy::EnemyBounce(float dt)
 	{
 		enemyDirection = -enemyDirection;
 	}
+	if (getPosition().x + getGlobalBounds().width > window->getSize().x)
+	{
+		enemyDirection = -enemyDirection;
+	}
+	if (getPosition().y < 0)
+	{
+		enemyDirection = -enemyDirection;
+	}
+	if (getPosition().y + getGlobalBounds().height > window->getSize().y)
+	{
+		enemyDirection = -enemyDirection;
+	}
 }
 
 void Enemy::EnemyMove(float dt)
