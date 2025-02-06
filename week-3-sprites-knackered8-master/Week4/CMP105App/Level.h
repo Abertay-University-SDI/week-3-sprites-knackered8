@@ -8,6 +8,7 @@
 #include <iostream>
 #include "Player.h"
 #include "Enemy.h"
+#include "Background.h"
 
 
 class Level : BaseLevel {
@@ -20,11 +21,19 @@ public:
 	void render() override;
 
 	Player playerObject;
+
 	Enemy enemyObject;
+	Enemy enemyObject2;
+
+	Background backObject;
 
 private:
 	// Level objects
 	GameObject testSprite;
+	GameObject gObject;
 	sf::Texture texture;
+	sf::Texture enemyTexture;
+	sf::Texture sonicTexture;
+	sf::Texture backTexture;
 
 };
