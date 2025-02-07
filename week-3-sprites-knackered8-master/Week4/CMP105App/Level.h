@@ -9,6 +9,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Background.h"
+#include "Cursor.h"
 
 
 class Level : BaseLevel {
@@ -22,6 +23,8 @@ public:
 	Enemy enemyObject2;
 
 	Background backObject;
+
+	Cursor cursorObject;
 
 	void handleInput(float dt) override;
 	void update(float dt) override;
@@ -37,5 +40,6 @@ private:
 	sf::Texture enemyTexture;
 	sf::Texture sonicTexture;
 	sf::Texture backTexture;
+	sf::Texture mouseTexture;
 
 };

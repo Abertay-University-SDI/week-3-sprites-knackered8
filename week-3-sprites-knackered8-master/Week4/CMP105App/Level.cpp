@@ -2,18 +2,19 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Background.h"
+#include "Cursor.h"
 
 Level::Level(sf::RenderWindow* hwnd, Input* in)
 {
 	window = hwnd;
 	input = in;
 
-	Enemy enemyObject = Enemy(window);
-	Enemy enemyObject2 = Enemy(window);
+	
+	
 
 	//enemyObject.setWindow(window);
-	//enemyObject.ReturnWindow(window);
-	//enemyObject2.ReturnWindow(window);
+	enemyObject.ReturnWindow(window);
+	enemyObject2.ReturnWindow(window);
 
 	backObject.ReturnWindow(window);
 
@@ -22,6 +23,7 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	enemyTexture.loadFromFile("gfx/Goomba.png");
 	sonicTexture.loadFromFile("gfx/sonic.png");
 	backTexture.loadFromFile("gfx/Level1_1.png");
+	mouseTexture.loadFromFile("gfx/icon.png");
 
 	testSprite.setTexture(&texture);
 	testSprite.setSize(sf::Vector2f(100, 100));
@@ -44,11 +46,16 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	backObject.setPosition(0, 0);
 	backObject.setSize(sf::Vector2f(11038,675));
 
+	cursorObject.setTexture(&mouseTexture);
+	cursorObject.setPosition(600, 300);
+	cursorObject.setSize(sf::Vector2f(20, 20));
+
 
 	backObject.setInput(input);
 	playerObject.setInput(input);
+	cursorObject.setWindow(window);
 
-	
+	window->setMouseCursorVisible(false);
 	
 
 }
@@ -71,6 +78,9 @@ void Level::handleInput(float dt)
 	playerObject.handleInput(dt);
 	backObject.handleInput(dt);
 
+	cursorObject.SetCursorPosition(sf::Mouse::getPosition(*window).x, sf::Mouse::getPosition(*window).y);
+
+
 }
 
 // Update game objects
@@ -91,6 +101,7 @@ void Level::render()
 	window->draw(playerObject);
 	window->draw(enemyObject);
 	window->draw(enemyObject2);
+	window->draw(cursorObject);
 	
 
 	endDraw();
